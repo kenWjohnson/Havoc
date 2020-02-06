@@ -1,10 +1,10 @@
-package engine.havoc2D;
+package engine_.havoc2D;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import engine.havoc2D.Point2D;
+import engine_.havoc2D.Point2D;
 
 class Point2DTest extends Point2D {
 
