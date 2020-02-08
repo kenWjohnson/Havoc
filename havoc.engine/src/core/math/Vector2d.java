@@ -26,13 +26,13 @@ public class Vector2d {
 		 j = to.y() - from.y();
 	 }
 
-	 public static Vector2d toCartesion(double magnitude, double angle) {
-		 return new Vector2d(magnitude*cos(angle),magnitude*sin(angle));
+	 public static Vector2d toCartesion(double magnitude, double direction) {
+		 return new Vector2d(magnitude*cos(direction),magnitude*sin(direction));
 	 }
 	 
 	 public double i() {return i;}
 	 public double j() {return j;}
-	 
-	 
+	 public double magnitude() {return hypot(i,j);}
+	 public double direction() {return atan2(j,i);}
 	 
 }

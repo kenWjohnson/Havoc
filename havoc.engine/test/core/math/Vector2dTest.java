@@ -45,5 +45,17 @@ class Vector2dTest {
 		assertEquals(Math.sqrt(2)/2, v.i(),1e-6);
 		assertEquals(Math.sqrt(2)/2, v.j(),1e-6);
 	}
+	
+	@Test
+	public void testGetMagnitude() {
+		Vector2d v = new Vector2d(3, 4);
+		assertEquals(5, v.magnitude(), 1e-6);
+	}
+	
+	@Test
+	public void testGetDirection() {
+		Vector2d v = new Vector2d(3, 4);
+		assertEquals(0.927295, v.direction(), 1e-6);
+	}
 
 }
