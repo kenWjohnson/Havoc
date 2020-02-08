@@ -60,5 +60,9 @@ public class Point2d {
     public int hashCode() {
         return Objects.hash(x, y);
     }
+    
+    public Point2d clone() {
+    	return new Point2d(x, y);
+    }
 	
 }

@@ -59,6 +59,10 @@ public class Point3d {
 		return Objects.hash(x, y, z);
 	}
 	
+    public Point3d clone() {
+    	return new Point3d(x, y, z);
+    }
+	
 }
 
 
