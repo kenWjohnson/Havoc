@@ -16,6 +16,9 @@ public class Line2d {
 		this.p2 = p2;
 	}
 	
+	public Point2d p1() { return p1;}
+	public Point2d p2() {return p2;}
+	
 	public String toString() {
 		if(b() < 0) return String.format("y=%.3fx-%.3f", slope(), -b());
 		return String.format("y=%.3fx+%.3f", slope(), b());
@@ -46,7 +49,5 @@ public class Line2d {
 	public double b() {
 		return p1.y() - slope()*p1.x();
 	}
-	
-	
 	
 }
