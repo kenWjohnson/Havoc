@@ -150,6 +150,13 @@ class ComplexTest {
 	}
 	
 	@Test
+	public void testStaticSubtract() {
+		Complex sum = Complex.subtract(new Complex(1, 1), new Complex(1, 1));
+		assertEquals(0, sum.real(), 1e-6);
+		assertEquals(0, sum.imag(), 1e-6);			
+	}
+	
+	@Test
 	public void testEqualPoints() {
 		Complex z1 = new Complex(1, 1);
 		Complex z2 = new Complex(1, 1);
