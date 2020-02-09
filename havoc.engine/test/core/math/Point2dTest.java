@@ -108,5 +108,6 @@ class Point2dTest extends Point2d {
 		Point2d p = p0.rotate(180);
 		assertEquals(-1, p.x(), 1e-6);
 		assertEquals(0, p.y(), 1e-6);
-	}
+	}	
+	
 }

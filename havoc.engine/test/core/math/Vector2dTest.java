@@ -12,7 +12,6 @@ class Vector2dTest {
 		assertEquals(1, v.i(),1e-6);
 		assertEquals(2, v.j(),1e-6);
 	}
-
 	
 	@Test
 	public void testConstructorVectorFromOnePoint2d() {
@@ -57,5 +56,192 @@ class Vector2dTest {
 		Vector2d v = new Vector2d(3, 4);
 		assertEquals(0.927295, v.direction(), 1e-6);
 	}
-
+	
+	@Test
+	public void testToString() {
+		Vector2d v = new Vector2d(1,1);
+		assertEquals("[1.000i, 1.000j]", v.toString());
+	}	
+	
+	@Test
+	public void testNormalize() {
+		Vector2d v = new Vector2d(10, 10);
+		Vector2d unit = v.normalize();
+		
+		assertEquals(Math.sqrt(2) / 2, unit.i(), 1e-6);
+		assertEquals(Math.sqrt(2) / 2, unit.j(), 1e-6);
+	}
+	
+	@Test
+	public void testAddWithComponent() {
+		Vector2d v = new Vector2d(1, 1);
+		Vector2d sum = v.add(1, 1);
+		
+		assertEquals(2, sum.i(), 1e-6);
+		assertEquals(2, sum.j(), 1e-6);
+	}
+	
+	@Test
+	public void testAddWithVector() {
+		Vector2d v1 = new Vector2d(1, 1);
+		Vector2d v2 = new Vector2d(1, 1);
+		Vector2d sum = v1.add(v2);
+		assertEquals(2, sum.i(), 1e-6);
+		assertEquals(2, sum.j(), 1e-6);
+	}
+	
+	@Test
+	public void testStatcAddition() {
+		Vector2d v1 =  new Vector2d(1, 1);
+		Vector2d v2 =  new Vector2d(1, 1);
+		Vector2d sum = Vector2d.add(v1, v2);
+		
+		assertEquals(2, sum.i(), 1e-6);
+		assertEquals(2, sum.j(), 1e-6);
+	}
+	
+	@Test
+	public void testSubtractWithComponent() {
+		Vector2d v = new Vector2d(1, 1);
+		Vector2d diff = v.subtract(1, 1);
+		
+		assertEquals(0, diff.i(), 1e-6);
+		assertEquals(0, diff.j(), 1e-6);
+	}
+	
+	@Test
+	public void testSubtractWithVector() {
+		Vector2d v1 = new Vector2d(1, 1);
+		Vector2d v2 = new Vector2d(1, 1);
+		Vector2d diff = v1.subtract(v2);
+		assertEquals(0, diff.i(), 1e-6);
+		assertEquals(0, diff.j(), 1e-6);
+	}
+	
+	@Test
+	public void testStatcSubtraction() {
+		Vector2d v1 =  new Vector2d(1, 1);
+		Vector2d v2 =  new Vector2d(1, 1);
+		Vector2d diff = Vector2d.subtract(v1, v2);
+		
+		assertEquals(0, diff.i(), 1e-6);
+		assertEquals(0, diff.j(), 1e-6);
+	}
+	
+	@Test
+	public void testScale() {
+		Vector2d v = new Vector2d(1, 2);
+		v = v.scale(5);
+		assertEquals(5, v.i(), 1e-6);
+		assertEquals(10, v.j(), 1e-6);
+	}
+	
+	@Test
+	public void testDotWithArguments() {
+		Vector2d v = new Vector2d(1, 2);
+		assertEquals(11, v.dot(3,4), 1e-6);
+	}
+	
+	@Test
+	public void testDotWithVector2d() {
+		Vector2d v1 = new Vector2d(1, 2);
+		Vector2d v2 = new Vector2d(3, 4);
+		assertEquals(11, v1.dot(v2), 1e-6);
+	}
+	
+	@Test
+	public void testStaticDot() {
+		Vector2d v1 = new Vector2d(1, 2);
+		Vector2d v2 = new Vector2d(3, 4);
+		assertEquals(11, Vector2d.dot(v1, v2), 1e-6);
+	}
+	
+	@Test
+	public void testProjectWithArguments() {
+		Vector2d v = new Vector2d(5, 0);
+		assertEquals(1, v.project(1,0), 1e-6);
+	}
+	
+	@Test
+	public void testProjectWithVector() {
+		Vector2d v = new Vector2d(5, 0);
+		Vector2d v2 = new Vector2d(1, 0);
+		assertEquals(1, v.project(v2), 1e-6);
+	}
+	
+	@Test
+	public void testStaticProject() {
+		Vector2d v1 = new Vector2d(5, 0);
+		Vector2d v2 = new Vector2d(1, 0);
+		assertEquals(1, Vector2d.project(v1, v2), 1e-6);
+	}
+	
+	@Test
+	public void testProjectedVectorWithArgument() {
+		Vector2d v1 = new Vector2d(5, 0);
+		Vector2d proj = v1.projectedVector(1, 0);
+		assertEquals(1, proj.i(), 1e-6);
+		assertEquals(0, proj.j(), 1e-6);
+	}
+	
+	@Test
+	public void testPorjectedVectorWithVector2d() {
+		Vector2d v1 = new Vector2d(5, 0);
+		Vector2d v2 = new Vector2d(1, 0);
+		Vector2d proj = v1.projectedVector(v2);
+		assertEquals(1, proj.i(), 1e-6);
+		assertEquals(0, proj.j(), 1e-6);
+	}
+	
+	@Test
+	public void testStaticProjectedVector2d() {
+		Vector2d v1 = new Vector2d(5, 0);
+		Vector2d v2 = new Vector2d(1, 0);
+		Vector2d proj = Vector2d.projectedVector(v1, v2);
+		assertEquals(1, proj.i(), 1e-6);
+		assertEquals(0, proj.j(), 1e-6);
+	}
+	
+	@Test 
+	public void testRotateVector() {
+		Vector2d v = new Vector2d(1, 0);
+		Vector2d rot = v.rotate(Math.PI/2);
+		assertEquals(0, rot.i(), 1e-6);
+		assertEquals(1, rot.j(), 1e-6);	
+	}
+	
+	@Test
+	public void testRotateTo() {
+		Vector2d v = new Vector2d(1,1);
+		Vector2d rot = v.rotateTo(0);
+		assertEquals(1.414214, rot.i(), 1e-6);
+		assertEquals(0, rot.j(), 1e-6);		
+	}
+	
+	@Test
+	public void testReverse() {
+		Vector2d v = new Vector2d(1,1);
+		Vector2d rev = v.reverse();
+		assertEquals(-1, rev.i(), 1e-6);
+		assertEquals(-1, rev.j(), 1e-6);		
+	}
+	
+	@Test
+	public void testEquals() {
+		Vector2d v1 = new Vector2d(1, 0);
+		Vector2d v2 = new Vector2d(1, 0);
+		assertTrue(v1.equals(v2) && v2.equals(v1));
+		assertTrue(!v1.equals(null));
+		assertTrue(v1.hashCode() == v2.hashCode());
+	}
+	
+	@Test
+	public void testClone() {
+		Vector2d v1 = new Vector2d(1,2);
+		Vector2d v2 = v1.clone();
+		assertTrue(v2.equals(v1));
+		
+	}
 }
+
+
