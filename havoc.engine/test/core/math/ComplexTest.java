@@ -158,9 +158,20 @@ class ComplexTest {
 	
 	@Test
 	public void testEqualPoints() {
-		Complex z1 = new Complex(1, 1);
-		Complex z2 = new Complex(1, 1);
-		assertTrue(z1.equals(z2) && z2.equals(z1));
+		Complex z1 = new Complex(0, 0);
+		Complex z2 = new Complex(0, 1);
+		Complex z3 = new Complex(1, 0);
+		Complex z4 = new Complex(1, 1);
+		assertTrue(z1.equals(z1));
+		assertTrue(!z1.equals(z2));
+		assertTrue(!z1.equals(z3));
+		assertTrue(!z1.equals(z4));
 		assertTrue(z1.hashCode() == z2.hashCode());
+	}
+	
+	@Test
+	public void testCloneComplex() {
+		Complex z = new Complex(1, 1);
+		assertTrue(z.hashCode() == z.clone().hashCode());
 	}
 }

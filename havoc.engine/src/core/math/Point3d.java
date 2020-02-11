@@ -51,7 +51,6 @@ public class Point3d {
 		if(obj == null) return false;
 	    if (this.getClass() != obj.getClass()) return false;
 	    Point3d that = (Point3d) obj;
-	        
 	    return (this.x == that.x) && (this.y == that.y) && (this.z == that.z);
 	}
 		

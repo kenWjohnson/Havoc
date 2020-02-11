@@ -15,6 +15,25 @@ class Line2dTest {
 		assertEquals(1.414214, l.length(), 1e-6);
 	}
 	
+	
+	@Test
+	public void testGetP1() {
+		Point2d p1 = new Point2d(1,1);
+		Point2d p2 = new Point2d(2,2);
+		Line2d l = new Line2d(p1, p2);
+		assertEquals(1, l.p1().x(), 1e-6);
+		assertEquals(1, l.p1().y(), 1e-6);
+	}
+	
+	@Test
+	public void testGetP2() {
+		Point2d p1 = new Point2d(1,1);
+		Point2d p2 = new Point2d(2,2);
+		Line2d l = new Line2d(p1, p2);
+		assertEquals(2, l.p2().x(), 1e-6);
+		assertEquals(2, l.p2().y(), 1e-6);
+	}
+	
 	@Test
 	public void testDistanceFromLine1() {
 		Line2d l = new Line2d(1, 1, 0, 0);
@@ -48,8 +67,9 @@ class Line2dTest {
 		assertEquals(578.432759, l.distanceTo(p), 1e-6);
 	}
 	
+	@Test
 	public void testGetLength() {
 		Line2d l = new Line2d(1, 1, 0, 0);
-		assertEquals(0.707106, l.distanceTo(1, 2), 1e-6);
+		assertEquals(1.414214, l.length(), 1e-6);
 	}
 }

@@ -110,4 +110,10 @@ class Point2dTest extends Point2d {
 		assertEquals(0, p.y(), 1e-6);
 	}	
 	
+	@Test
+	public void testPoint2d() {
+		Point2d p = new Point2d(1, 1);
+		assertTrue(p.hashCode() == p.clone().hashCode());
+	}
+	
 }

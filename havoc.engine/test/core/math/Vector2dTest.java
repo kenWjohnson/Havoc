@@ -229,10 +229,18 @@ class Vector2dTest {
 	@Test
 	public void testEquals() {
 		Vector2d v1 = new Vector2d(1, 0);
-		Vector2d v2 = new Vector2d(1, 0);
-		assertTrue(v1.equals(v2) && v2.equals(v1));
+		Vector2d v2 = new Vector2d(0, 0);
+		Vector2d v3 = new Vector2d(0, 1);
+		Vector2d v4 = new Vector2d(1, 1);
+		int x = 1;
+		assertTrue(v1.equals(v1));
+		assertTrue(!v1.equals(v2));
+		assertTrue(!v1.equals(v3));
+		assertTrue(!v1.equals(v4));
 		assertTrue(!v1.equals(null));
-		assertTrue(v1.hashCode() == v2.hashCode());
+		assertTrue(v1.hashCode() != v2.hashCode());
+		assertTrue(v1.hashCode() == v1.hashCode());
+		assertTrue(!v1.equals(x));
 	}
 	
 	@Test
