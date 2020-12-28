@@ -97,13 +97,25 @@ class Point3dTest {
 	@Test
 	public void testPointsThatAreNotEqual() {
 		Point3d p1 = new Point3d(0, 0, 0);
-		Point3d p2 = new Point3d(1, 0, 0);
+		Point3d p2 = new Point3d(0, 0, 1);
 		Point3d p3 = new Point3d(0, 1, 0);
-		Point3d p4 = new Point3d(0, 0, 1);
+		Point3d p4 = new Point3d(0, 1, 1);
+		Point3d p5 = new Point3d(1, 0, 0);
+		Point3d p6 = new Point3d(1, 0, 1);
+		Point3d p7 = new Point3d(1, 1, 0);
+		Point3d p8 = new Point3d(1, 1, 1);
 		assertTrue(!p1.equals(p2));
 		assertTrue(!p1.equals(p3));
 		assertTrue(!p1.equals(p4));
-
-
+		assertTrue(!p1.equals(p5));
+		assertTrue(!p1.equals(p6));
+		assertTrue(!p1.equals(p7));
+		assertTrue(!p1.equals(p8));
+	}
+	
+	@Test
+	public void testClonePoint3d() {
+		Point3d p = new Point3d(1, 2, 3);
+		assertTrue(p.hashCode() == p.clone().hashCode());
 	}
 }

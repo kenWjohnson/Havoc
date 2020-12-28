@@ -37,6 +37,19 @@ public class Point2d {
         return Math.sqrt(dx*dx + dy*dy);
 	}
 	
+	public Point2d translate(double x, double y) {
+		return new Point2d(this.x + x, this.y +y);
+	}
+
+	public Point2d rotate(double deg) {
+		deg = toRadians(deg);
+		double xp = x*cos(deg) - y*sin(deg);
+		double yp = x*sin(deg) + y*cos(deg);
+		return new Point2d(xp, yp);
+
+	}
+
+	
 	public boolean equals(Object obj) {
 		if(obj == null) return false;
         if (this.getClass() != obj.getClass()) return false;
@@ -46,6 +59,10 @@ public class Point2d {
 	
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+    
+    public Point2d clone() {
+    	return new Point2d(x, y);
     }
 	
 }

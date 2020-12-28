@@ -51,13 +51,16 @@ public class Point3d {
 		if(obj == null) return false;
 	    if (this.getClass() != obj.getClass()) return false;
 	    Point3d that = (Point3d) obj;
-	        
 	    return (this.x == that.x) && (this.y == that.y) && (this.z == that.z);
 	}
 		
 	public int hashCode() {
 		return Objects.hash(x, y, z);
 	}
+	
+    public Point3d clone() {
+    	return new Point3d(x, y, z);
+    }
 	
 }
 

@@ -85,4 +85,35 @@ class Point2dTest extends Point2d {
 		assertTrue(!p1.equals(p2));
 	}
 	
+	
+	@Test
+	public void testTranslate() {
+		Point2d p0 = new Point2d(1, 1);
+		Point2d p = p0.translate(4, 6);
+		assertEquals(5, p.x(), 1e-6);
+		assertEquals(7, p.y(), 1e-6);
+	}
+	
+	@Test
+	public void testRotate1() {
+		Point2d p0 = new Point2d(1, 0);
+		Point2d p = p0.rotate(90);
+		assertEquals(0, p.x(), 1e-6);
+		assertEquals(1, p.y(), 1e-6);
+	}
+	
+	@Test
+	public void testRotate2() {
+		Point2d p0 = new Point2d(1, 0);
+		Point2d p = p0.rotate(180);
+		assertEquals(-1, p.x(), 1e-6);
+		assertEquals(0, p.y(), 1e-6);
+	}	
+	
+	@Test
+	public void testPoint2d() {
+		Point2d p = new Point2d(1, 1);
+		assertTrue(p.hashCode() == p.clone().hashCode());
+	}
+	
 }

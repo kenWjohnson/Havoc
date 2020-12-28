@@ -91,17 +91,27 @@ public class Complex {
         return sum;
     }
     
-    public boolean equals(Object x) {
-        if (x == null) return false;
-        if (this.getClass() != x.getClass()) return false;
-        Complex that = (Complex) x;
+    public static Complex subtract(Complex a, Complex b) {
+        double real = a.re - b.re;
+        double imag = a.im - b.im;
+        Complex diff = new Complex(real, imag);
+        return diff;
+    }
+    
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (this.getClass() != obj.getClass()) return false;
+        Complex that = (Complex) obj;
         return (this.re == that.re) && (this.im == that.im);
     }
     
     public int hashCode() {
         return Objects.hash(re, im);
     }
-
+    
+    public Complex clone() {
+    	return new Complex(re, im);
+    }
 
 }
 
